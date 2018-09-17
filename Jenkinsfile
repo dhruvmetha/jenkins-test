@@ -11,10 +11,15 @@ pipeline {
                 sh 'ls'
             }
         }
-        stage('start') {
+        stage('install') {
             steps {
-                sh 'npm start'
+                sh 'npm install'
             }
         }
+	stage('start'){
+		steps {
+			sh 'npm start'
+		}
+	}
     }
 }
