@@ -52,7 +52,9 @@ node {
     }
 
     stage('test') {
-        sh ' docker exec -it node "/bin/bash" '
-        sh 'ls'
+        nodeapp.inside{
+            sh 'ls'
+            sh 'npm --version'
+        }
     }
 }
