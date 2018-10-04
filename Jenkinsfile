@@ -52,12 +52,7 @@ node {
     }
 
     stage('test') {
-        mongoapp.inside {
-            sh 'ls'
-            sh 'top'
-        }
-        nodeapp.inside {
-            sh 'ls'
-        }
+        sh ' docker exec -it node "/bin/bash" '
+        sh 'ls'
     }
 }
