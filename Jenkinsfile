@@ -41,8 +41,10 @@ node {
     def nodeapp
     def mongoapp
     stage('build'){
-        nodeapp = docker.build("node-image", "./node")
-        mongoapp = docker.build("mongo-image", "./mongo")
+        
+        nodeapp = docker.image(docker.build("node-image", "./node"))
+    
+        mongoapp = docker.image(docker.build("mongo-image", "./mongo"))
     }
 
     stage('run'){
@@ -61,5 +63,6 @@ node {
             sh 'ls'
             sh 'pwd'
         }
+
     }
 }
