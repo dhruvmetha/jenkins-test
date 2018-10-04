@@ -39,12 +39,11 @@
 node {
     checkout scm
     def nodeapp
-    def mongoapp
+    //def mongoapp
     stage('build'){
         
         nodeapp = docker.build("node-image", "./node")
-        nodeapp.inside {
-            sh 'npm --version'
-        }
+        sh './node/script.sh'
+        
     }
 }
