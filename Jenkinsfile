@@ -41,14 +41,19 @@ node {
     def nodeapp
     def mongoapp
     stage('build'){
-        
         nodeapp = docker.build("node-image", "./node")
-        mongoapp = docker.build("mongo-image", "./mongo")        
+        mongoapp = docker.build("mongo-image", "./mongo")
     }
 
     stage('run'){
         sh 'docker run -d -u root --name mongo -p 27017:27017 mongo-image'
+        nodeapp.inside {
+            sh 'pwd'
+        }
         sh 'docker run -d -u root --name node -p 3000:3000 node-image'
+        mongoapp.inside {
+            sh 'pwd'
+        }
     }
 
     stage('test') {
