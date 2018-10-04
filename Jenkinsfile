@@ -39,12 +39,17 @@
 node {
     checkout scm
     def nodeapp
-    //def mongoapp
+    def mongoapp
     stage('build'){
         
         nodeapp = docker.build("node-image", "./node")
-        //sh './node/script.sh'
+        mongoapp = docker.build("mongo-image", "./mongo")        
+    }
+
+    stage('run'){
         sh 'docker run -u root --name node -p 3000:3000 node-image'
-        
+        nodeapp.inside {
+            sh '/script.sh'
+        }
     }
 }
