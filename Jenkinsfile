@@ -13,7 +13,6 @@ pipeline {
            agent {
                dockerfile {
                    dir 'node'
-                   label 'node-image'
                }
            }
 
@@ -27,7 +26,6 @@ pipeline {
            agent {
                dockerfile {
                    dir 'mongo'
-                   label 'mongo-image'
                }
            }
 
