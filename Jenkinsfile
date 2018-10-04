@@ -43,7 +43,7 @@ node {
     stage('build'){
         
         nodeapp = docker.build("node-image", "./node")
-        sh './node/script.sh'
+        //sh './node/script.sh'
         
     }
 }
