@@ -1,13 +1,13 @@
 pipeline {
     agent none
     stages {
-        stage('scm'){
-            steps {
-                sh 'ls'
-                //sh 'git checkout master'
-            }
+        // stage('scm'){
+        //     steps {
+        //         sh 'ls'
+        //         //sh 'git checkout master'
+        //     }
            
-        }
+        // }
 
         stage('node'){
            agent {
