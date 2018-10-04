@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('scm'){
             steps {
-                sh 'git checkout master'
+                sh 'ls'
+                //sh 'git checkout master'
             }
            
         }
