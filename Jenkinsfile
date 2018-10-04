@@ -2,7 +2,10 @@ pipeline {
     agent none
     stages {
         stage('scm'){
-            sh 'git checkout master'
+            steps {
+                sh 'git checkout master'
+            }
+           
         }
 
         stage('node'){
