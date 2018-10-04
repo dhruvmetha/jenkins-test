@@ -1,6 +1,6 @@
 FROM mongo:latest
 WORKDIR /data
-COPY ./mongo ./
+COPY . .
 VOLUME [ "/data/db" ]
 EXPOSE 27017
 CMD ["mongod"]
