@@ -1,25 +1,35 @@
 pipeline {
-    agent { 
-        docker { 
-            image 'node'
-            args '-p 3000:3000 -p 5000:5000' 
-            } 
-        }
+    agent none
     stages {
-        stage('build') {
-            steps {
-                sh 'npm --version'
-            }
+        stage('scm'){
+            sh 'git checkout master'
         }
-        stage('ls') {
-            steps {
-                sh 'ls'
-            }
+
+        stage('node'){
+           agent {
+               dockerfile {
+                   dir 'node'
+                   label 'node-image'
+               }
+           }
+
+           steps {
+               sh 'npm --version'
+           } 
         }
-        stage('install') {
-            steps {
-                sh 'npm install'
-            }
+
+
+        stage('mongo'){
+           agent {
+               dockerfile {
+                   dir 'mongo'
+                   label 'mongo-image'
+               }
+           }
+
+           steps {
+               sh 'mongod --version'
+           } 
         }
     }
 }
