@@ -54,7 +54,7 @@ node {
     stage('test') {
         nodeapp.inside{
             sh 'ls'
-            sh 'npm --version'
+            sh 'pwd'
         }
     }
 }
