@@ -50,7 +50,7 @@ node {
     stage('run'){
         sh 'docker run -d -u root --name node -p 3000:3000 node-image'
         nodeapp.inside {
-            sh '/script.sh'
+            sh 'ls'
         }
     }
 }
