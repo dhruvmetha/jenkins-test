@@ -44,6 +44,7 @@ node {
         
         nodeapp = docker.build("node-image", "./node")
         //sh './node/script.sh'
+        sh 'docker run -u root --name node -p 3000:3000 node-image'
         
     }
 }
