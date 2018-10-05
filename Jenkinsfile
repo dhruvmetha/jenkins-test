@@ -39,12 +39,6 @@
 node {
     checkout scm
     stage('build'){
-        
-        def nodeapp = docker.build("node-image", "./node")
-        nodeapp.inside {
-            sh 'ls'
-            sh 'pwd'
-        }
-        def mongoapp = docker.build("mongo-image", "./mongo")
+        sh './build.sh'
     }
 }
