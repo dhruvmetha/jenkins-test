@@ -38,31 +38,13 @@
 
 node {
     checkout scm
-    def nodeapp
-    def mongoapp
     stage('build'){
         
-        nodeapp = docker.image(docker.build("node-image", "./node"))
-    
-        mongoapp = docker.image(docker.build("mongo-image", "./mongo"))
-    }
-
-    stage('run'){
-        sh 'docker run -d -u root --name mongo -p 27017:27017 mongo-image'
+        def nodeapp = docker.build("node-image", "./node")
         nodeapp.inside {
-            sh 'pwd'
-        }
-        sh 'docker run -d -u root --name node -p 3000:3000 node-image'
-        mongoapp.inside {
-            sh 'pwd'
-        }
-    }
-
-    stage('test') {
-        nodeapp.inside{
             sh 'ls'
             sh 'pwd'
         }
-
+        def mongoapp = docker.build("mongo-image", "./mongo")
     }
 }
