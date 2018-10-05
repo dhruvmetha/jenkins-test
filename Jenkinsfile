@@ -42,4 +42,13 @@ node {
         sh 'chmod +x build.sh'
         sh './build.sh'
     }
+
+    stage('test'){
+        sh 'curl http://localhost:3000/'
+    }
+
+    stage('rm'){
+        sh 'docker stop mongo node'
+        sh 'docker rm mongo node'
+    }
 }
