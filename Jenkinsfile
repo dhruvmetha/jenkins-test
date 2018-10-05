@@ -39,6 +39,7 @@
 node {
     checkout scm
     stage('build'){
+        sh 'chmod +x build.sh'
         sh './build.sh'
     }
 }
