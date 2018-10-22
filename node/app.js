@@ -13,9 +13,13 @@ mongoose
     });
 
 app.get("/", (req, res) => {
-    res.send("Jenkins Test");
+    res.sendFile(__dirname+'/index.html');
+    
 });
 
+app.get("/test",(req,res)=>{
+    res.send("test sucesss")
+})
 app.listen(3000, () => {
     console.log("Listening at 3000");
 });

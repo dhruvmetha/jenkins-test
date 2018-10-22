@@ -43,12 +43,14 @@ node {
         sh './build.sh'
     }
 
-    stage('test'){
-        sh 'curl http://localhost:3000/'
+    stage("test"){
+        sh 'chmod +x test.sh'
+        sh './test.sh'
     }
 
     stage('rm'){
-        sh 'docker stop mongo node'
-        sh 'docker rm mongo node'
+        sh 'docker stop mongo node selenium'
+        sh 'docker rm mongo node selenium' 
+        sh 'docker network rm mynet'
     }
 }
