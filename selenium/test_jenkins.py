@@ -5,8 +5,8 @@ import time
 class leanspace(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
-        inst.driver=webdriver.Chrome("./chromedriver.exe")
-        inst.driver.get("http://192.168.99.100:3000")
+        inst.driver=webdriver.Chrome()
+        inst.driver.get("http://192.168.99.100:3001")
         inst.driver.set_page_load_timeout(10)
         inst.driver.maximize_window()
         inst.driver.implicitly_wait(2)
