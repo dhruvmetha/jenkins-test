@@ -1,3 +1,2 @@
-FROM python:latest
+FROM joyzoursky/python-chromedriver
 COPY . .
-RUN pip3 install selenium
