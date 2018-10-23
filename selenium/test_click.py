@@ -12,6 +12,7 @@ class TestTemplate(unittest.TestCase):
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
         self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        self.driver.set_page_load_timeout(10)
         self.driver.implicitly_wait(10)
 
     def tearDown(self):
