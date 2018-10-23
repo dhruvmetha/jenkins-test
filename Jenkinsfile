@@ -11,8 +11,8 @@ node {
     }
 
     stage('rm'){
-        sh 'docker stop mongo node selenium'
-        sh 'docker rm mongo node selenium' 
+        sh 'docker stop mongo node'
+        sh 'docker rm mongo node' 
         sh 'docker network rm mynet'
     }
 }

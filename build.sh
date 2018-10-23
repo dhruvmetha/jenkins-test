@@ -11,7 +11,6 @@ docker run -u root -d --network=mynet --name node -p 3001:3001 -p 443:443 node-i
 
 docker build -t selenium-image ./selenium
 
-
 docker network inspect mynet
 
 set +x
