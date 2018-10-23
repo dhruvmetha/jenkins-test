@@ -21,7 +21,7 @@ class TestTemplate(unittest.TestCase):
     def test_case_1(self):
         """Find and click top-right button"""
         try:
-            self.driver.get('http://192.168.99.100:3000/')
+            self.driver.get('http://192.168.99.100:3001/')
             el = self.driver.find_element_by_id('btn')
             el.click()
         except NoSuchElementException as ex:

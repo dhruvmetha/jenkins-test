@@ -1,3 +1,3 @@
 FROM joyzoursky/python-chromedriver
 COPY . .
-CMD ["python", "--version"]
+CMD ["python", "-m unittest discover -v"]

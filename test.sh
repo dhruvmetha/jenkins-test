@@ -1,5 +1,4 @@
 #! /bin/sh
 set -x
-docker exec selenium ls
-docker exec selenium python -m unittest discover -v
+docker run --name selenium -u root selenium-image
 set +x
