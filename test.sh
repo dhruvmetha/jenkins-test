@@ -1,5 +1,5 @@
 #! /bin/sh
 set -x
-docker exec -it selenium ls
-docker exec -it selenium python -m unittest discover -v
+docker exec selenium ls
+docker exec selenium python -m unittest discover -v
 set +x
