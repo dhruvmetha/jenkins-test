@@ -20,6 +20,6 @@ app.get("/", (req, res) => {
 app.get("/test",(req,res)=>{
     res.send("test sucesss")
 })
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log("Listening at 3000");
 });
